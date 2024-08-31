@@ -36,4 +36,16 @@ config ZMK_WIDGET_WPM_STATUS
     select LV_USE_LABEL
     select ZMK_WPM
 
+config ZMK_WIDGET_LOGO
+    bool "Show logo"
+    depends on !ZMK_SPLIT || ZMK_SPLIT_ROLE_CENTRAL
+    default y
+    select LV_USE_IMG
+
+config ZMK_WIDGET_LOGO_STX
+    bool "Show logo"
+    depends on ZMK_SPLIT && !ZMK_SPLIT_ROLE_CENTRAL
+    default y
+    select LV_USE_IMG
+
 endmenu

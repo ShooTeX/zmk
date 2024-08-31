@@ -12,6 +12,11 @@
 #include <zmk/display/status_screen.h>
 
 #include <zephyr/logging/log.h>
+#include <zephyr/kernel.h>
+
+#include "widgets/icons/miryokulogo.h"
+#include "widgets/icons/stx.h"
+
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #if IS_ENABLED(CONFIG_ZMK_WIDGET_BATTERY_STATUS)
@@ -65,5 +70,26 @@ lv_obj_t *zmk_display_status_screen() {
     zmk_widget_wpm_status_init(&wpm_status_widget, screen);
     lv_obj_align(zmk_widget_wpm_status_obj(&wpm_status_widget), LV_ALIGN_BOTTOM_RIGHT, 0, 0);
 #endif
+
+#if IS_ENABLED(CONFIG_ZMK_WIDGET_LOGO)
+    LV_IMG_DECLARE(miryokulogo);
+  
+    lv_obj_t *logo_icon;
+    logo_icon = lv_img_create(screen);
+
+    lv_img_set_src(logo_icon, &miryokulogo);
+    lv_obj_align(logo_icon, LV_ALIGN_TOP_MID, 5, 6);
+#endif
+
+#if IS_ENABLED(CONFIG_ZMK_WIDGET_LOGO_STX)
+    LV_IMG_DECLARE(stx);
+  
+    lv_obj_t *logo_icon;
+    logo_icon = lv_img_create(screen);
+
+    lv_img_set_src(logo_icon, &stx);
+    lv_obj_align(logo_icon, LV_ALIGN_TOP_MID, 5, 6);
+#endif
+
     return screen;
 }

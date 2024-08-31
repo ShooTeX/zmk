@@ -6,3 +6,5 @@ target_sources_ifdef(CONFIG_ZMK_WIDGET_OUTPUT_STATUS app PRIVATE output_status.c
 target_sources_ifdef(CONFIG_ZMK_WIDGET_PERIPHERAL_STATUS app PRIVATE peripheral_status.c)
 target_sources_ifdef(CONFIG_ZMK_WIDGET_LAYER_STATUS app PRIVATE layer_status.c)
 target_sources_ifdef(CONFIG_ZMK_WIDGET_WPM_STATUS app PRIVATE wpm_status.c)
+target_sources_ifdef(CONFIG_ZMK_WIDGET_LOGO app PRIVATE icons/miryokulogo.c)
+target_sources_ifdef(CONFIG_ZMK_WIDGET_LOGO_STX app PRIVATE icons/stx.c)
